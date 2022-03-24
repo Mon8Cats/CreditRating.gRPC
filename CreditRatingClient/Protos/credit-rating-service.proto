@@ -1,0 +1,25 @@
+
+syntax = "proto3"; // the Protobuf syntax version
+
+option csharp_namespace = "CreditRatingClient"; 
+
+package CreditRating;
+
+// the RPC service interface
+service CreditRatingCheck {
+  rpc CheckCreditRequest (CreditRequest) returns (CreditReply);
+}
+
+// the input message type
+// each field has a unique number assinged.
+message CreditRequest {
+  string customerId = 1;
+  int32 credit = 2;
+}
+
+// the output message type
+message CreditReply {
+  bool isAccepted = 1;
+}
+
+// make the application aware of this .proto file
